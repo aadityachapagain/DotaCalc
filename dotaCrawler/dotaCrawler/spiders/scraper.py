@@ -2,6 +2,8 @@ import scrapy
 import requests
 from scrapy.selector import Selector
 from dotaCrawler.items import Heros
+from scrapy import signals
+import time , os
 
 
 class DotaSpider(scrapy.Spider):
@@ -72,3 +74,15 @@ class DotaSpider(scrapy.Spider):
 
         for role in table.xpath('.//tbody/tr[2]/td/child::a[@title="Role"]'):
             yield role.xpath('text()').extract_first()
+
+    @classmethod
+    def from_crawler(cls, crawler, *args, **kwargs):
+        spider = super(DotaSpider, cls).from_crawler(crawler, *args, **kwargs)
+        crawler.signals.connect(spider.spider_closed, signal=signals.spider_closed)
+        return spider
+
+    def spider_closed(self, spider):
+        print('Damn myan spiders are now closed !')
+        time.sleep(5)
+        spider.logger.info('Spider closed: %s', spider.name)
+

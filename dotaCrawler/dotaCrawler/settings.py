@@ -89,4 +89,4 @@ ROBOTSTXT_OBEY = True
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
 FEED_FORMAT = 'json'
-FEED_URI = 'dotaCrawler/spiders/dotaAPI/static/dota_hero.jp'
+FEED_URI = 'dota_hero.jp'

@@ -3,7 +3,7 @@ import requests
 from scrapy.selector import Selector
 from dotaCrawler.items import Heros
 from scrapy import signals
-import time , os
+import time, os
 
 
 class DotaSpider(scrapy.Spider):
@@ -82,7 +82,6 @@ class DotaSpider(scrapy.Spider):
         return spider
 
     def spider_closed(self, spider):
-        print('Damn myan spiders are now closed !')
         time.sleep(5)
         spider.logger.info('Spider closed: %s', spider.name)
 

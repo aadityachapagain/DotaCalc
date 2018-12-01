@@ -8,7 +8,13 @@
 import scrapy
 
 
-class DotacrawlerItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
+class Heros(scrapy.Item):
+    type = ['Strength', 'Agility', 'Intelligence']
+    name = scrapy.Field()
+    img_link = scrapy.Field()
+    ability = scrapy.Field()
+    Roles = scrapy.Field()
+    Bad_against = scrapy.Field()
+    Good_against = scrapy.Field()
+    Work_well_with = scrapy.Field()
+

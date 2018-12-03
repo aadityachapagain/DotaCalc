@@ -38,7 +38,8 @@ class DotaSpider(scrapy.Spider):
             hero = value.xpath('.//b/a/text()').extract_first()
             pts = len(value.xpath('.//following-sibling::ul')[0].xpath('.//child::li'))
             yield {
-                hero: pts
+                'hero': hero,
+                'pts':pts
             }
 
 
@@ -54,7 +55,8 @@ class DotaSpider(scrapy.Spider):
             hero = value.xpath('.//b/a/text()').extract_first()
             pts = len(value.xpath('.//following-sibling::ul')[0].xpath('.//child::li'))
             yield {
-                hero: pts
+                'hero': hero,
+                'pts': pts
             }
 
 

@@ -59,6 +59,8 @@ paths:
                   items:
                     type: "string"
   /hero/{Heroname}:
+#    options:
+#      $ref: '#/definitions/custom-CORS-response'
     get:
       operationId: hero.read_one
       tags:

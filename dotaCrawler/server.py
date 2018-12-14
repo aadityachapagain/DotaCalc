@@ -3,13 +3,14 @@ import connexion
 from flask_cors import CORS
 
 # create the application instance
-app = connexion.App(__name__,specification_dir='./')
+app = connexion.FlaskApp(__name__,specification_dir='./')
 
 # Read the swagger.yml file to configure the endpoints
 app.add_api('swagger.yml')
 
 # add CORS support
-CORS(app.app)
+# CORS(app.app)
+cors = CORS(app.app, resources=r"/api/*")
 
 # Create a URL route in our application
 @app.route('/')
@@ -24,7 +25,7 @@ def home():
 
 
 def runServer():
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='localhost', port=3001, debug=True)
 
 
 # if we are running in the standalone mode, run the application
